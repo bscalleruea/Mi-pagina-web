@@ -1,0 +1,22 @@
+/* Personalización de botón primario */
+.btn-primary {
+  background-color: #ff5733;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #c70039;
+  transform: scale(1.05);
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 576px) {
+  body {
+    background-color: #fce4ec;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+}

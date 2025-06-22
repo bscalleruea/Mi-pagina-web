@@ -1,55 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semana3</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title style="color: goldenrod;"><h1>Barbería Barcelonas</h1></title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <img src="herramientas-peluquero-cartel-pancarta-barberia_760861-1.avif" alt=""> <img src="descarga.jpeg" alt="imagen"><img src="descarga (1).jpeg" alt=""><img src="herramientas-peluquero-cartel-pancarta-barberia_760861-1.avif" alt="">
-    <h1 style="color: darkgoldenrod;">Barberia Barcelona</h1> 
-    <h2 style="color: maroon;">!Hola Barberia Barcelona les da la Bienvenida¡ </h2>
-    <h1 style="color: darkgoldenrod;">En Barberia Barcelona te ofrecemos los mejores servicios, en Estilo y moda.</h1>
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sL3iCtFga3Q?si=q9XurtkGWQW0wy3-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe> 
-    <p><strong>Tenemos el mejor Equipo de barberos de la ciudad de Shushufindi.</strong>
-        <h5>Conformado por:</h5>
-     </p><strong>Luis</strong> = alias-Kakaroto
-            <p><strong>Alejandro</strong> = alias- Pinky </p>
-           <p><strong>Romeo</strong> = alias- Romeo</p>
-           <p> <strong>Braian</strong> = alias- Braian Barber</p>
 
-           <h2>Los mejores servivcio</h2>
-    <nav>
-     <ul>
-      <li>1- corte fade</li>
-      <li>2- Corte fade con Barba+Cejas</li>
-      <li>3- Corte fade Barba+c+Cejas y Toalla Caliente</li>   
-      <li>4- Corte fade Barba+Cejas+Toalla y limpieza Facial</li>
-      </ul> 
-   </nav>     
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Barbería Barcelona</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<H3>Incluye Cada Servicio</H3>
+  <!-- ENCABEZADO -->
+  <header class="text-center p-4">
+    <h1 class="display-5" style="color: darkgoldenrod;">¡Bienvenido a Barbería Barcelona!</h1>
+    <h4>Estilo, calidad y atención al cliente en un solo lugar.</h4>
+  </header>
 
- <Ol>
-       <Li>Corte Basico:  Cualquier tipo de corte desde basico a fade, incluido cejas</Li>
-       <Li>Corte Completo: cualquier tipo de corte + Cualquier modelo de Barba incluido cejas</Li>
-       <Li>Corte Premium: Cualquier tipo de corte, Barba + Toalla caliente + Mascarilla; incluido cejas</Li>
-       <Li>Corte Golds: Corte, barba, toalla_caliente, limpieza_facial, incluido cejas</Li>
- </Ol>
- <h3>PRECIOS$</h3>
+  <!-- SECCIÓN PRINCIPAL -->
+  <section class="container py-4">
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow">
+          <img src="descarga.jpeg" class="" alt="servicio1">
+          <div class="card-body">
+            <h3 class="card-title">Corte Básico</h3>
+            <p class="card-text">Corte clásico y cejas. Ideal para un look casual.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow">
+          <img src="barberia.jpg" class="card-img-top img-fluid" alt="servicio2">
+          <div class="card-body">
+            <h3 class="card-title">Corte Premium</h3>
+            <p class="card-text">Incluye corte, barba, cejas, toalla caliente y mascarilla.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow">
+          <img src="descarga (1).jpeg" class="card-img-top img-fluid" alt="servicio3">
+          <div class="card-body">
+            <h3 class="card-title">Corte Gold</h3>
+            <p class="card-text">Corte completo, limpieza facial y experiencia exclusiva.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-     <Table border="1">
-        <thead><tr><td>Corte Basico</td>
-            <td>Corte Completo</td>
-        <td>Corte Premium</td>
-        <td>Corte Golds</td></tr></thead>
-       <tr><td>4.00$</td>
-         <td>6.00$</td>
-         <td>9.00$</td>
-         <td>15.00$</td>
-       </tr>
- </Table>
+  <!-- FORMULARIO -->
+  <section class="container py-4">
+    <h2 class="text-center mb-4">Contáctanos</h2>
+    <form class="container">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+      </div>
+      <div class="mb-3">
+        <label for="comentario" class="form-label">Comentarios</label>
+        <textarea class="form-control" id="comentario" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </section>
 
+  <!-- BOTÓN Y COLLAPSE -->
+  <section class="container py-4 text-center">
+    <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#infoExtra">Ver más información</button>
+    <div class="collapse mt-3" id="infoExtra">
+      <div class="card card-body">
+        Nuestro equipo cuenta con más de 10 años de experiencia en el arte del barbero profesional.
+      </div>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer class="bg-light text-center py-3">
+    <p>© 2025 Barbería Barcelona | <a href="#">Términos</a> | <a href="#">Privacidad</a></p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
