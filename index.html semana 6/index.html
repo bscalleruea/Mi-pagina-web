@@ -1,0 +1,184 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Interactivo con Validación</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #b2ebf2; /* celeste claro */
+      padding: 50px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00796b;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #006064;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+
+    input:valid {
+      border-color: green;
+    }
+
+    input:invalid {
+      border-color: red;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.85em;
+      margin-top: 2px;
+    }
+
+    .botones {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #00bcd4;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:disabled {
+      background-color: #b2ebf2;
+      cursor: not-allowed;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #0097a7;
+    }
+  </style>
+</head>
+<body>
+  <form id="formulario">
+    <h2>Formulario de Registro</h2>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    <span class="error" id="error-nombre"></span>
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" required>
+    <span class="error" id="error-email"></span>
+
+    <label for="password">Contraseña (6 números):</label>
+    <input type="password" id="password" name="password" required>
+    <span class="error" id="error-password"></span>
+
+    <label for="confirm-password">Confirmar contraseña:</label>
+    <input type="password" id="confirm-password" name="confirm-password" required>
+    <span class="error" id="error-confirm-password"></span>
+
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad" required>
+    <span class="error" id="error-edad"></span>
+
+    <div class="botones">
+      <button type="submit" id="submit" disabled>Enviar</button>
+      <button type="reset">Reiniciar</button>
+    </div>
+  </form>
+
+  <script>
+    const formulario = document.getElementById("formulario");
+    const nombre = document.getElementById("nombre");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirm-password");
+    const edad = document.getElementById("edad");
+    const submit = document.getElementById("submit");
+
+    // Cualquier email válido
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Contraseña: exactamente 6 números
+    const passwordRegex = /^\d{6}$/;
+
+    function validar() {
+      let valido = true;
+
+      if (nombre.value.trim().length < 3) {
+        document.getElementById("error-nombre").textContent = "Debe tener al menos 3 caracteres.";
+        valido = false;
+      } else {
+        document.getElementById("error-nombre").textContent = "";
+      }
+
+      if (!emailRegex.test(email.value)) {
+        document.getElementById("error-email").textContent = "Correo inválido.";
+        valido = false;
+      } else {
+        document.getElementById("error-email").textContent = "";
+      }
+
+      if (!passwordRegex.test(password.value)) {
+        document.getElementById("error-password").textContent = "Debe tener exactamente 6 dígitos numéricos.";
+        valido = false;
+      } else {
+        document.getElementById("error-password").textContent = "";
+      }
+
+      if (confirmPassword.value !== password.value || confirmPassword.value === '') {
+        document.getElementById("error-confirm-password").textContent = "Las contraseñas no coinciden.";
+        valido = false;
+      } else {
+        document.getElementById("error-confirm-password").textContent = "";
+      }
+
+      if (parseInt(edad.value) < 18 || edad.value === '') {
+        document.getElementById("error-edad").textContent = "Debes tener al menos 18 años.";
+        valido = false;
+      } else {
+        document.getElementById("error-edad").textContent = "";
+      }
+
+      submit.disabled = !valido;
+    }
+
+    [nombre, email, password, confirmPassword, edad].forEach(input => {
+      input.addEventListener('input', validar);
+    });
+
+    formulario.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('✅ ¡Formulario enviado con éxito!');
+    });
+  </script>
+</body>
+</html>
