@@ -6,47 +6,42 @@ const confirmPassword = document.getElementById("confirm-password");
 const edad = document.getElementById("edad");
 const submit = document.getElementById("submit");
 
-// Expresiones regulares
+// Validación: correo válido y contraseña de 6 dígitos numéricos
 const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-const passwordRegex = /^(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])[A-Za-z\\d!@#\\$%\\^&\\*]{8,}$/;
+const passwordRegex = /^\\d{6}$/;
 
 function validar() {
   let valido = true;
 
-  // Nombre
-  if (nombre.value.length < 3) {
-    document.getElementById("error-nombre").textContent = "Mínimo 3 caracteres.";
+  if (nombre.value.trim().length < 3) {
+    document.getElementById("error-nombre").textContent = "Debe tener al menos 3 caracteres.";
     valido = false;
   } else {
     document.getElementById("error-nombre").textContent = "";
   }
 
-  // Email
   if (!emailRegex.test(email.value)) {
-    document.getElementById("error-email").textContent = "Correo no válido.";
+    document.getElementById("error-email").textContent = "Correo inválido.";
     valido = false;
   } else {
     document.getElementById("error-email").textContent = "";
   }
 
-  // Password
   if (!passwordRegex.test(password.value)) {
-    document.getElementById("error-password").textContent = "Mínimo 8 caracteres, un número y un carácter especial.";
+    document.getElementById("error-password").textContent = "Debe tener exactamente 6 dígitos numéricos.";
     valido = false;
   } else {
     document.getElementById("error-password").textContent = "";
   }
 
-  // Confirmación de contraseña
-  if (confirmPassword.value !== password.value) {
+  if (confirmPassword.value !== password.value || confirmPassword.value === '') {
     document.getElementById("error-confirm-password").textContent = "Las contraseñas no coinciden.";
     valido = false;
   } else {
     document.getElementById("error-confirm-password").textContent = "";
   }
 
-  // Edad
-  if (parseInt(edad.value) < 18) {
+  if (parseInt(edad.value) < 18 || edad.value === '') {
     document.getElementById("error-edad").textContent = "Debes tener al menos 18 años.";
     valido = false;
   } else {
@@ -56,13 +51,11 @@ function validar() {
   submit.disabled = !valido;
 }
 
-// Validaciones en tiempo real
 [nombre, email, password, confirmPassword, edad].forEach(input => {
   input.addEventListener('input', validar);
 });
 
-// Al enviar el formulario
 formulario.addEventListener('submit', e => {
   e.preventDefault();
-  alert('¡Formulario enviado con éxito!');
+  alert('✅ ¡Formulario enviado con éxito!');
 });
